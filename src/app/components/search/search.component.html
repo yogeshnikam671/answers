@@ -21,7 +21,8 @@
 
 <div class="answers">
   <p *ngFor="let result of results" class="answers__p">
-    {{result}}
+    &#x25cf; {{result}}
   </p>
+  <p *ngIf="!resultsFound" class="answers__p">No Result Found!</p>
 </div>
 </div>
