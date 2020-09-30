@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
   onClick(): void{
     const ans = [];
     this.questions.forEach((ques, index) => {
-      if (this.question && this.question !== ''
+      if (this.question && this.question.trim() !== ''
             && ques.toLowerCase().includes(this.question.toLowerCase())){
         ans.push(this.answers[index]);
       }
