@@ -125,6 +125,86 @@
           }
         }
       }
+    },
+    "gavali": {
+      "projectType": "library",
+      "root": "projects/gavali",
+      "sourceRoot": "projects/gavali/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/gavali/tsconfig.lib.json",
+            "project": "projects/gavali/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/gavali/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gavali/src/test.ts",
+            "tsConfig": "projects/gavali/tsconfig.spec.json",
+            "karmaConfig": "projects/gavali/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gavali/tsconfig.lib.json",
+              "projects/gavali/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "fad": {
+      "projectType": "library",
+      "root": "projects/fad",
+      "sourceRoot": "projects/fad/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/fad/tsconfig.lib.json",
+            "project": "projects/fad/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/fad/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fad/src/test.ts",
+            "tsConfig": "projects/fad/tsconfig.spec.json",
+            "karmaConfig": "projects/fad/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fad/tsconfig.lib.json",
+              "projects/fad/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "timepass"

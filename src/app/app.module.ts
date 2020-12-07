@@ -10,13 +10,20 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import {storeReducer} from './reducers/store.reducer';
+import { GavaliComponent } from './components/gavali/gavali.component';
+import {RouterModule} from '@angular/router';
+import {DadaPipe} from './pipes/dada.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionComponent,
     SearchComponent,
-    AnswerComponent
+    AnswerComponent,
+    GavaliComponent,
+    DadaPipe
   ],
   imports: [
     BrowserModule,
@@ -24,7 +31,14 @@ import {FormsModule} from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({
+      store: storeReducer
+    }),
+    RouterModule.forRoot([
+      {path: 'answer', component: AnswerComponent},
+      {path: 'gavali', component: GavaliComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

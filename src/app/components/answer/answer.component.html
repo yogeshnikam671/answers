@@ -1,1 +1,21 @@
-<p>answer works!</p>
+<!--<div *ngFor="let data of storeData | async">-->
+<!--  <p>{{data.name}}</p>-->
+<!--  <p>{{data.url}}</p>-->
+<!--</div>-->
+
+<!--<input type="text" [(ngModel)]="name">-->
+<!--<input type="text" [(ngModel)]="url">-->
+<!--<button (click)="addData(name, url)">Add</button>-->
+<div>
+<p (click)="apicall()" [style]="style">
+  Make api call
+</p>
+
+<app-gavali *ngFor="let i of [1,2,3]"
+  [isDataFetched]="isParentDataFetched"
+  [index]="i"
+  (colorEvent)="onColorEvent($event)"
+>
+  Children content
+</app-gavali>
+</div>
