@@ -11,9 +11,9 @@
   Make api call
 </p>
 
-<app-gavali *ngFor="let title of titles"
+<app-gavali *ngFor="let i of [1,2,3]"
   [isDataFetched]="isParentDataFetched"
-  [title]="title"
+  [index]="i"
   (colorEvent)="onColorEvent($event)"
 >
   Children content

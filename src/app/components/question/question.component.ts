@@ -9,10 +9,13 @@ import {AnswerService} from '../../services/answer.service';
 export class QuestionComponent implements OnInit {
   works: boolean;
   constructor(private answerService: AnswerService) {
-    this.works = this.answerService.works;
   }
 
   ngOnInit(): void {
+    //ghetla
+    this.answerService.worksObs.subscribe((response: boolean) => {
+      this.works = response;
+    });
   }
 
 }

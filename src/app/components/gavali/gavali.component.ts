@@ -12,13 +12,17 @@ export class GavaliComponent implements OnInit {
   @Input() index: number;
   @Output() colorEvent = new EventEmitter<string>();
   @Input() title: string;
+
+  works = true;
   constructor(private answerService: AnswerService) {}
 
   ngOnInit(): void {
   }
 
   onClick(){
-    this.answerService.works = false;
+    this.answerService.worksSubject.next(this.works); // dila
+    this.works = !this.works;
+
     switch(this.index){
       case 1: this.colorEvent.emit('red'); break;
       case 2: this.colorEvent.emit('blue'); break;
