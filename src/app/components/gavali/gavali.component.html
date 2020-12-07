@@ -1,11 +1,4 @@
 <div *ngIf="isDataFetched" class="div" (click)="onClick()">
+  <p>{{title}}</p>
 </div>
 
-<div>
-<ng-container *ngIf="index % 2 == 0; then helloRef; else hiRef"></ng-container>
-Byee..
-</div>
-
-
-<ng-template #helloRef>Hello</ng-template>
-<ng-template #hiRef>Hi</ng-template>

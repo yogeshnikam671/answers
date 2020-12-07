@@ -1,5 +1,6 @@
 import {Component, ContentChild, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {redirectLoggedInTo} from '@angular/fire/auth-guard';
+import {AnswerService} from '../../services/answer.service';
 
 @Component({
   selector: 'app-gavali',
@@ -10,12 +11,14 @@ export class GavaliComponent implements OnInit {
   @Input() isDataFetched: boolean;
   @Input() index: number;
   @Output() colorEvent = new EventEmitter<string>();
-  constructor() {}
+  @Input() title: string;
+  constructor(private answerService: AnswerService) {}
 
   ngOnInit(): void {
   }
 
   onClick(){
+    this.answerService.works = false;
     switch(this.index){
       case 1: this.colorEvent.emit('red'); break;
       case 2: this.colorEvent.emit('blue'); break;

@@ -15,6 +15,7 @@ import {storeReducer} from './reducers/store.reducer';
 import { GavaliComponent } from './components/gavali/gavali.component';
 import {RouterModule} from '@angular/router';
 import {DadaPipe} from './pipes/dada.pipe';
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,12 +32,14 @@ import {DadaPipe} from './pipes/dada.pipe';
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
+    HttpClientJsonpModule,
+    HttpClientModule,
     FormsModule,
     StoreModule.forRoot({
       store: storeReducer
     }),
     RouterModule.forRoot([
-      {path: 'answer', component: AnswerComponent},
+      {path: '', component: AnswerComponent},
       {path: 'gavali', component: GavaliComponent}
     ])
   ],

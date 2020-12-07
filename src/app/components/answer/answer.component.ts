@@ -4,6 +4,8 @@ import {tore} from '../../models/store.model';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../state/app.state';
 import * as StoreActions from './../../actions/store.actions';
+import {AnswerService} from '../../services/answer.service';
+import {filter, first, take, takeUntil, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-answer',
@@ -17,8 +19,9 @@ export class AnswerComponent implements OnInit {
   url: string;
   isParentDataFetched: boolean;
   style: any;
+  titles = [];
 
-  constructor(private store: Store<AppState>) {
+  constructor(private answerService: AnswerService, private store: Store<AppState>) {
     this.storeData = store.select('store');
   }
   addData(name, url){
@@ -29,7 +32,15 @@ export class AnswerComponent implements OnInit {
   }
 
   apicall(){
-    this.isParentDataFetched = !this.isParentDataFetched;
+    this.style = { color: 'red'};
+    this.answerService.getPosts().subscribe(response => {
+      // @ts-ignore
+      this.titles = response.map(data => data.title);
+      console.log(this.titles);
+      this.style = {color : 'green'};
+      this.isParentDataFetched = true;
+    });
+    this.style = {color : 'yellow'};
   }
 
   onColorEvent(color: string) {

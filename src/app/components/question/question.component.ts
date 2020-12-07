@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AnswerService} from '../../services/answer.service';
 
 @Component({
   selector: 'app-question',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
-
-  constructor() { }
+  works: boolean;
+  constructor(private answerService: AnswerService) {
+    this.works = this.answerService.works;
+  }
 
   ngOnInit(): void {
   }
